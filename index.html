@@ -48,7 +48,7 @@
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Outfit',sans-serif;
 }
-html{scroll-behavior:smooth;font-size:15px;}
+html{scroll-behavior:smooth;font-size:16px;}
 body{background:var(--cream);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden;line-height:1.7;}
 
 
@@ -597,13 +597,13 @@ footer{
 /* ── AUTORIDADE LAYOUT ── */
 .autoridade-inner-grid{
   display:grid;
-  grid-template-columns:1fr 300px;
-  gap:5rem;
+  grid-template-columns:1fr 360px;
+  gap:4.5rem;
   align-items:start;
 }
 @media(max-width:1024px){
   .autoridade-inner-grid{
-    grid-template-columns:1fr 260px;
+    grid-template-columns:1fr 300px;
     gap:3rem;
   }
 }
@@ -613,7 +613,8 @@ footer{
     gap:3rem;
   }
   .autoridade-foto-col{
-    max-width:260px;
+    max-width:320px;
+    position:static !important;
   }
 }
 /* ── LARGE SCREEN CONSTRAINTS ── */
@@ -660,6 +661,166 @@ footer{
   #sobre > div > div:last-child{
     min-height:360px!important;
   }
+}
+
+/* ══════════ NOVOS ELEMENTOS — FOCO EMPREGADO ══════════ */
+
+/* ── TRUST STRIP (HERO) ── */
+.hero-trust{
+  display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;margin-top:3rem;
+  opacity:0;animation:fadeUp .9s ease .95s forwards;
+}
+.hero-trust-item{display:flex;flex-direction:column;gap:.25rem;}
+.hero-trust-num{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--gold);line-height:1;}
+.hero-trust-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,242,.5);line-height:1.5;}
+.hero-trust-sep{width:1px;height:36px;background:var(--gold-line);}
+@media(max-width:768px){.hero-trust-sep{display:none;}.hero-trust{gap:1.6rem 2.2rem;}}
+
+/* ── SITUAÇÕES (educacional — direitos) ── */
+.situacoes-section{background:var(--cream);}
+.situacoes-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(196,164,107,.18);margin-top:4rem;
+  border:1px solid rgba(196,164,107,.18);
+}
+.sit-card{
+  background:var(--cream);padding:2.3rem 2rem;position:relative;
+  transition:background .4s ease;overflow:hidden;
+}
+.sit-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--gold);transition:width .35s ease;
+}
+.sit-card:hover{background:var(--parchment);}
+.sit-card:hover::before{width:3px;}
+.sit-ico{
+  width:48px;height:48px;border:1px solid var(--gold-line);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem;transition:all .35s ease;
+}
+.sit-card:hover .sit-ico{background:var(--gold);border-color:var(--gold);}
+.sit-ico svg{width:21px;height:21px;fill:none;stroke:var(--gold);stroke-width:1.5;transition:stroke .35s;}
+.sit-card:hover .sit-ico svg{stroke:var(--ink);}
+.sit-card h4{font-family:var(--serif);font-size:1.12rem;font-weight:600;color:var(--text);margin-bottom:.55rem;}
+.sit-card p{font-size:.85rem;line-height:1.65;color:var(--muted);}
+@media(max-width:900px){.situacoes-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.situacoes-grid{grid-template-columns:1fr;}}
+
+/* ── COMO FUNCIONA (processo) ── */
+.processo-section{background:var(--ink);color:var(--cream);position:relative;overflow:hidden;}
+.processo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4.5rem;position:relative;}
+.processo-line{position:absolute;top:34px;left:9%;right:9%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-line) 20%,var(--gold-line) 80%,transparent);}
+.proc-step{padding:0 1.6rem;position:relative;}
+.proc-num{
+  width:68px;height:68px;border-radius:50%;border:1px solid var(--gold-line);background:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;
+  color:var(--gold);margin-bottom:1.8rem;position:relative;z-index:1;transition:all .4s;
+}
+.proc-step:hover .proc-num{background:var(--gold);color:var(--ink);transform:translateY(-4px);}
+.proc-step h4{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--cream);margin-bottom:.8rem;}
+.proc-step p{font-size:.85rem;line-height:1.7;color:rgba(250,248,242,.78);font-weight:300;}
+@media(max-width:900px){.processo-grid{grid-template-columns:1fr 1fr;gap:3rem 1rem;}.processo-line{display:none;}}
+@media(max-width:560px){.processo-grid{grid-template-columns:1fr;}}
+
+/* ── FEATURE EMPREGADO ── */
+.empregado-feature{
+  background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:0;
+  margin-top:4rem;overflow:hidden;border:1px solid var(--gold-line);
+}
+.emp-feat-left{padding:3.5rem;display:flex;flex-direction:column;justify-content:center;}
+.emp-feat-tag{
+  background:var(--gold);color:var(--ink);align-self:flex-start;padding:.4rem .9rem;
+  font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;
+}
+.emp-feat-left h3{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--cream);margin-bottom:1.2rem;line-height:1.15;}
+.emp-feat-left h3 em{font-style:italic;color:var(--gold);}
+.emp-feat-left p{font-size:.95rem;line-height:1.8;color:rgba(250,248,242,.85);font-weight:300;margin-bottom:2rem;}
+.emp-feat-right{background:linear-gradient(160deg,var(--ink3),#26262c);padding:3.5rem;border-left:1px solid var(--gold-line);}
+.emp-feat-right h4{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold3);margin-bottom:1.5rem;}
+.emp-feat-list{list-style:none;padding:0;}
+.emp-feat-list li{font-size:.9rem;color:rgba(250,248,242,.9);padding:.75rem 0 .75rem 1.6rem;position:relative;border-bottom:1px solid rgba(196,164,107,.12);}
+.emp-feat-list li:last-child{border-bottom:none;}
+.emp-feat-list li::before{content:'→';position:absolute;left:0;color:var(--gold);}
+@media(max-width:880px){
+  .empregado-feature{grid-template-columns:1fr;}
+  .emp-feat-right{border-left:none;border-top:1px solid var(--gold-line);}
+  .emp-feat-left,.emp-feat-right{padding:2.5rem;}
+  .emp-feat-left h3{font-size:1.6rem;}
+}
+
+/* ── BAND EMPRESAS ── */
+.empresas-band{
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  background:var(--parchment);border:1px solid rgba(196,164,107,.2);padding:2rem 2.5rem;margin-top:1.5rem;flex-wrap:wrap;
+}
+.empresas-band-left{display:flex;align-items:center;gap:1.5rem;}
+.eb-ico{width:48px;height:48px;border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.eb-ico svg{width:21px;height:21px;fill:none;stroke:var(--gold);stroke-width:1.5;}
+.empresas-band h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:.25rem;}
+.empresas-band p{font-size:.82rem;color:var(--muted);max-width:540px;line-height:1.55;}
+.eb-link{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--gold-line);padding-bottom:.4rem;transition:all .3s;}
+.eb-link:hover{gap:1.1rem;border-color:var(--gold);}
+@media(max-width:768px){.empresas-band{flex-direction:column;align-items:flex-start;}}
+
+/* ══════════ MOBILE RESPONSIVO COMPLETO ══════════ */
+@media(max-width:768px){
+
+  /* ── Tipografia geral ── */
+  .hero h1{font-size:2.1rem;line-height:1.15;margin-bottom:1.5rem;}
+  .display-heading{font-size:1.8rem;line-height:1.1;}
+  .autoridade-name{font-size:2rem;line-height:1.05;margin-bottom:.6rem;}
+  .autoridade-bio{font-size:.97rem;line-height:1.85;}
+  .autoridade-role{font-size:.6rem;margin-bottom:1.5rem;}
+  .hero-sub{max-width:100%;}
+
+  /* ── FAQ ── */
+  .faq-q-text{font-size:1rem;}
+  .faq-a-inner{font-size:.93rem;line-height:1.8;}
+
+  /* ── Diferenciais ── */
+  .diff-intro{margin-bottom:2.5rem;padding-bottom:2rem;}
+  .diff-num{font-size:2.2rem;}
+  .diff-intro-right p{font-size:.97rem;}
+  .diff-cell{padding:2rem 1.5rem;}
+
+  /* ── Atuação ── */
+  .atuacao-header{margin-bottom:3rem;padding-bottom:2rem;}
+  .service-desc{font-size:.88rem;}
+
+  /* ── Como Funciona ── */
+  .proc-num{width:52px;height:52px;font-size:1.2rem;margin-bottom:1.2rem;}
+  .proc-step{padding:0 .6rem;}
+  .proc-step h4{font-size:1.05rem;}
+  .proc-step p{font-size:.82rem;}
+
+  /* ── Sobre ── */
+  .sobre-layout{margin-top:2.5rem;}
+
+  /* ── Empresas band ── */
+  .empresas-band{padding:1.5rem;}
+  .empresas-band p{font-size:.78rem;}
+
+  /* ── Credenciais ── */
+  .credentials-stack{margin-top:2rem;}
+  .cred-value{font-size:.82rem;}
+
+  /* ── Espaçamentos gerais ── */
+  .faq-layout{margin-top:2.5rem;}
+  .processo-section .container,
+  .situacoes-section .container{overflow-x:hidden;}
+
+}
+
+/* ── Telas muito pequenas (≤ 400 px) ── */
+@media(max-width:400px){
+  .hero h1{font-size:1.75rem;}
+  .display-heading{font-size:1.55rem;}
+  .autoridade-name{font-size:1.75rem;}
+  .emp-feat-left,.emp-feat-right{padding:2rem 1.2rem;}
+  .sit-card{padding:1.8rem 1.2rem;}
+  .proc-step{padding:0;}
+  .btn-gold,.btn-ghost{padding:.85rem 1.5rem;}
+  .diff-cell{padding:1.5rem 1.2rem;}
+  .section-wrap{padding:60px 1.2rem;}
 }
 </style></style>
 </head>
@@ -734,7 +895,7 @@ footer{
     </button>
     <ul class="nav-links" id="nav-menu">
       <li><a href="#atendemos">Quem Atendemos</a></li>
-      <li><a href="#sobre">Escritório</a></li>
+      <li><a href="#situacoes">Seus Direitos</a></li>
       <li><a href="#atuacao">Atuação</a></li>
       <li><a href="#autoridade">Klaus Moroni</a></li>
       <li><a href="#faq">Dúvidas</a></li>
@@ -753,11 +914,27 @@ footer{
     <div class="hero-rule">
       <span>Moroni Advocacia — Direito Trabalhista</span>
     </div>
-    <h1>Seu direito<br><em>defendido com</em><br>estratégia.</h1>
-    <p class="hero-sub">Seja você empregado que teve seus direitos violados, empresa buscando proteção jurídica ou profissional autônomo — estamos prontos para transformar sua situação com conhecimento técnico e visão estratégica.</p>
+    <h1>Seu trabalho<br>tem valor.<br><em>Seus direitos também.</em></h1>
+    <p class="hero-sub">Escritório especializado na defesa de quem trabalha. Analisamos a sua situação com rigor técnico e cuidado humano, para que você entenda, com clareza, o que a lei garante a você. Também assessoramos empresas em direito trabalhista e segurança do trabalho.</p>
     <div class="hero-actions">
-      <a href="#contato" class="btn-gold">Agendar Consulta</a>
-      <a href="#atendemos" class="btn-ghost">Como Podemos Ajudar →</a>
+      <a href="#contato" class="btn-gold">Agendar uma análise do seu caso</a>
+      <a href="#situacoes" class="btn-ghost">Conheça seus direitos →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <span class="hero-trust-num count" data-to="12" data-suffix="+">0</span>
+        <span class="hero-trust-label">Anos em<br>direito trabalhista</span>
+      </div>
+      <span class="hero-trust-sep"></span>
+      <div class="hero-trust-item">
+        <span class="hero-trust-num">OAB/SC</span>
+        <span class="hero-trust-label">Inscrição<br>39.706</span>
+      </div>
+      <span class="hero-trust-sep"></span>
+      <div class="hero-trust-item">
+        <span class="hero-trust-num">SC</span>
+        <span class="hero-trust-label">Presencial<br>e remoto</span>
+      </div>
     </div>
   </div>
 </section>
@@ -775,43 +952,91 @@ footer{
   <div class="container">
     <span class="label">Quem Atendemos</span>
     <h2 class="display-heading reveal" style="margin-bottom:.5rem;">Para quem é o <em>Moroni Advocacia</em></h2>
-    <p class="reveal reveal-delay-1" style="max-width:600px;font-size:1rem;line-height:1.8;color:var(--text);margin-bottom:0;">Atendemos dois públicos com necessidades distintas — com a mesma excelência técnica e comprometimento com resultados.</p>
-    <div class="atendemos-grid">
-      <div class="atendemos-card reveal reveal-delay-2">
-        <span class="atendemos-destaque">Foco Principal</span>
-        <div class="atendemos-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <h3>Empregados</h3>
-        <p>Você trabalhou com dedicação e seus direitos não foram respeitados? Não aceite isso. Conheça o que a lei garante para você.</p>
-        <ul>
-          <li>Horas extras não pagas</li>
-          <li>Rescisão indevida ou forçada</li>
-          <li>Assédio moral ou sexual</li>
-          <li>FGTS e verbas rescisórias</li>
-          <li>Acidente de trabalho</li>
-          <li>Doença ocupacional</li>
-          <li>Discriminação e reintegração</li>
-          <li>Irregularidades no registro</li>
+    <p class="reveal reveal-delay-1" style="max-width:620px;font-size:1rem;line-height:1.8;color:var(--text);margin-bottom:0;">O foco do escritório é a defesa do trabalhador. Também atuamos na assessoria preventiva e na defesa de empresas em direito trabalhista e segurança do trabalho.</p>
+
+    <!-- FEATURE: EMPREGADOS -->
+    <div class="empregado-feature reveal reveal-delay-2">
+      <div class="emp-feat-left">
+        <span class="emp-feat-tag">Foco do Escritório</span>
+        <h3>Para quem <em>trabalha</em> e quer entender seus direitos.</h3>
+        <p>Dedicamos atenção real a cada caso. Em uma conversa inicial, ouvimos a sua situação, explicamos com clareza o que a legislação prevê e, havendo fundamento, conduzimos a sua reclamação trabalhista com técnica e acompanhamento próximo.</p>
+        <a href="#contato" class="btn-gold" style="align-self:flex-start;">Agendar uma análise do seu caso</a>
+      </div>
+      <div class="emp-feat-right">
+        <h4>O que você pode esperar</h4>
+        <ul class="emp-feat-list">
+          <li>Escuta atenta da sua situação</li>
+          <li>Explicação clara dos seus direitos</li>
+          <li>Comunicação direta em cada etapa</li>
+          <li>Honorários transparentes desde o início</li>
+          <li>Sigilo profissional assegurado</li>
         </ul>
       </div>
-      <div class="atendemos-card reveal reveal-delay-3">
-        <div class="atendemos-icon">
+    </div>
+
+    <!-- BAND: EMPRESAS -->
+    <div class="empresas-band reveal reveal-delay-3">
+      <div class="empresas-band-left">
+        <div class="eb-ico">
           <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
         </div>
-        <h3>Empresas & Autônomos</h3>
-        <p>Proteção jurídica preventiva e defesa estratégica para empresas que querem crescer com segurança e conformidade.</p>
-        <ul>
-          <li>Defesa em reclamações trabalhistas</li>
-          <li>Consultoria preventiva CLT</li>
-          <li>Consultoria SST / NR-1</li>
-          <li>Análise de riscos psicossociais</li>
-          <li>Transportadores (Lei 11.442/2007)</li>
-          <li>Auditoria de conformidade</li>
-          <li>Elaboração de políticas internas</li>
-          <li>Planejamento preventivo</li>
-        </ul>
+        <div>
+          <h4>Empresas, transportadores e autônomos</h4>
+          <p>Assessoria preventiva em CLT, defesa em reclamatórias e consultoria em Saúde e Segurança do Trabalho (NR-1, GRO, PGR).</p>
+        </div>
       </div>
+      <a href="#atuacao" class="eb-link">Ver atuação empresarial →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SITUAÇÕES / CONHEÇA SEUS DIREITOS -->
+<section class="situacoes-section section-wrap" id="situacoes">
+  <div class="container">
+    <span class="label">Conheça seus direitos</span>
+    <h2 class="display-heading reveal" style="margin-bottom:.5rem;">Situações que merecem <em>atenção</em></h2>
+    <p class="reveal reveal-delay-1" style="max-width:620px;font-size:1rem;line-height:1.8;color:var(--text);margin-bottom:0;">Alguns problemas no contrato de trabalho passam despercebidos. Conteúdo informativo para ajudar você a reconhecê-los — sem substituir a análise individual do seu caso.</p>
+    <div class="situacoes-grid">
+
+      <div class="sit-card reveal reveal-delay-1">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <h4>Horas extras e jornada</h4>
+        <p>Horas trabalhadas além da jornada, intervalos suprimidos ou registro de ponto que não reflete a realidade.</p>
+      </div>
+
+      <div class="sit-card reveal reveal-delay-2">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M8 6V4h8v2"/></svg></div>
+        <h4>Verbas rescisórias e FGTS</h4>
+        <p>Aviso prévio, 13º, férias com ⅓, multa de 40% e depósitos de FGTS calculados ou pagos de forma incompleta.</p>
+      </div>
+
+      <div class="sit-card reveal reveal-delay-3">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18M5 5l14 14"/></svg></div>
+        <h4>Rescisão indireta</h4>
+        <p>Quando o empregador descumpre obrigações de forma grave, pode haver fundamento para o rompimento por culpa da empresa.</p>
+      </div>
+
+      <div class="sit-card reveal reveal-delay-1">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><path d="M5 22a7 7 0 0114 0"/></svg></div>
+        <h4>Assédio e danos morais</h4>
+        <p>Humilhações, exposição indevida ou condições degradantes no ambiente de trabalho podem gerar direito a reparação.</p>
+      </div>
+
+      <div class="sit-card reveal reveal-delay-2">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 21v-6"/><path d="M5 8l3 3-3 3M19 8l-3 3 3 3"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>Acidente e doença ocupacional</h4>
+        <p>Adoecimentos e acidentes relacionados ao trabalho envolvem estabilidade, benefícios e possíveis indenizações.</p>
+      </div>
+
+      <div class="sit-card reveal reveal-delay-3">
+        <div class="sit-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>Vínculo e registro</h4>
+        <p>Trabalho sem registro, “pejotização” ou anotações que não correspondem ao que de fato ocorreu na relação de trabalho.</p>
+      </div>
+
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:3rem;">
+      <a href="#contato" class="btn-gold">Conversar sobre o meu caso</a>
     </div>
   </div>
 </section>
@@ -837,7 +1062,7 @@ footer{
         </p>
 
         <p style="font-size:.97rem;font-weight:300;line-height:1.8;color:var(--text);margin-bottom:1.5rem;" class="reveal reveal-delay-2">
-          Em mais de dez anos de atuação, construímos uma reputação baseada em três pilares que nunca negociamos: <strong>especialização profunda</strong>, <strong>comprometimento da equipe</strong> e <strong>foco inabalável em resultado</strong>. Cada cliente recebe atenção real e estratégia construída para o seu caso.
+          Em mais de dez anos de atuação, construímos uma reputação baseada em três pilares que nunca negociamos: <strong>especialização profunda</strong>, <strong>comprometimento da equipe</strong> e <strong>foco inabalável na qualidade técnica</strong>. Cada cliente recebe atenção real e estratégia construída para o seu caso.
         </p>
 
         <p style="font-size:.97rem;font-weight:300;line-height:1.8;color:var(--text);margin-bottom:2rem;" class="reveal reveal-delay-2">
@@ -845,14 +1070,14 @@ footer{
         </p>
 
         <div style="background:var(--parchment);border-left:3px solid var(--gold);padding:1.5rem 2rem;margin:2rem 0;" class="reveal reveal-delay-3">
-          <p style="font-size:.95rem;line-height:1.7;color:var(--text);font-style:italic;">"Boutique especializado significa que seu caso não é um número. Significa profundidade técnica real e comprometimento com o melhor resultado possível para você."</p>
+          <p style="font-size:.95rem;line-height:1.7;color:var(--text);font-style:italic;">"Boutique especializado significa que seu caso não é um número. Significa profundidade técnica real e comprometimento com a melhor condução possível do seu caso."</p>
           <span style="display:block;margin-top:.8rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3);font-style:normal;">Klaus Moroni Alves — Fundador · OAB/SC 39.706</span>
         </div>
 
         <!-- Pilares -->
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(196,164,107,.15);margin-top:2.5rem;" class="reveal reveal-delay-4">
           <div style="background:var(--cream);padding:1.4rem 1rem;text-align:center;">
-            <div style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;">10+</div>
+            <div class="count" data-to="10" data-suffix="+" style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;">0</div>
             <div style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Anos de<br>Especialização</div>
           </div>
           <div style="background:var(--cream);padding:1.4rem 1rem;text-align:center;border-left:1px solid rgba(196,164,107,.15);border-right:1px solid rgba(196,164,107,.15);">
@@ -860,8 +1085,8 @@ footer{
             <div style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Jaraguá do Sul<br>& Remoto</div>
           </div>
           <div style="background:var(--cream);padding:1.4rem 1rem;text-align:center;">
-            <div style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;">100%</div>
-            <div style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Foco em<br>Resultado</div>
+            <div class="count" data-to="100" data-suffix="%" style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;">0</div>
+            <div style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);line-height:1.4;">Dedicação<br>a cada caso</div>
           </div>
         </div>
 
@@ -955,22 +1180,54 @@ footer{
   </div>
 </section>
 
+<!-- COMO FUNCIONA -->
+<section class="processo-section section-wrap" id="processo">
+  <div class="container">
+    <span class="label" style="color:rgba(196,164,107,.5);">Como Funciona</span>
+    <h2 class="display-heading reveal" style="color:var(--cream);">Do primeiro contato<br>à <em>condução do caso</em></h2>
+    <div class="processo-grid">
+      <div class="processo-line"></div>
+
+      <div class="proc-step reveal">
+        <div class="proc-num">1</div>
+        <h4>Contato</h4>
+        <p>Você fala com o escritório por WhatsApp, telefone ou e-mail e relata, de forma reservada, a sua situação.</p>
+      </div>
+
+      <div class="proc-step reveal reveal-delay-1">
+        <div class="proc-num">2</div>
+        <h4>Análise</h4>
+        <p>Avaliamos os documentos disponíveis e estudamos os fatos à luz da legislação e da jurisprudência aplicável.</p>
+      </div>
+
+      <div class="proc-step reveal reveal-delay-2">
+        <div class="proc-num">3</div>
+        <h4>Orientação</h4>
+        <p>Explicamos com clareza os seus direitos, os caminhos possíveis e as condições de honorários, sem surpresas.</p>
+      </div>
+
+      <div class="proc-step reveal reveal-delay-3">
+        <div class="proc-num">4</div>
+        <h4>Acompanhamento</h4>
+        <p>Havendo contratação, conduzimos o caso com técnica e mantemos você informado em cada etapa do processo.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- AUTORIDADE / KLAUS -->
 <section class="autoridade-section section-wrap" id="autoridade">
   <div class="container">
     <span class="label">O Advogado Fundador</span>
 
-    <!-- Nome grande + role -->
-    <div style="margin-bottom:4rem;" class="reveal">
-      <h2 class="autoridade-name">Klaus<br><em>Moroni Alves</em></h2>
-      <div class="autoridade-role">Advogado Fundador · OAB/SC 39.706</div>
-    </div>
-
-    <!-- Layout: texto à esquerda, foto à direita -->
+    <!-- Layout: texto + foto lado a lado -->
     <div class="autoridade-inner-grid">
 
-      <!-- ESQUERDA: bio + credentials -->
+      <!-- ESQUERDA: nome + bio + credentials -->
       <div>
+        <h2 class="autoridade-name reveal">Klaus <em>Moroni Alves</em></h2>
+        <div class="autoridade-role reveal">Advogado Fundador · OAB/SC 39.706</div>
         <p class="autoridade-bio reveal reveal-delay-1">
           Klaus é o advogado fundador do escritório, especializado em direito trabalhista com mais de <strong>12 anos de experiência</strong>. Lidera uma <strong>equipe especializada</strong> que atua tanto na defesa de trabalhadores com direitos violados quanto na assessoria estratégica de empresas, transportadores e profissionais autônomos em Santa Catarina.
         </p>
@@ -1042,18 +1299,18 @@ footer{
   <div class="container">
     <div class="diff-intro">
       <div>
-        <span class="label">Diferenciais</span>
-        <h2 class="display-heading reveal">Por que<br><em>nos escolher</em></h2>
+        <span class="label">Como Trabalhamos</span>
+        <h2 class="display-heading reveal">Nossos<br><em>compromissos</em></h2>
       </div>
       <div class="diff-intro-right reveal reveal-delay-2">
-        <p>Não somos mais um escritório genérico. Nosso modelo foi construído para entregar o que nossos clientes realmente precisam: clareza, comprometimento e resultados.</p>
+        <p>Nosso modelo de trabalho foi pensado para oferecer o que mais importa a quem nos procura: clareza, dedicação e atenção real a cada caso.</p>
       </div>
     </div>
     <div class="diff-grid">
       <div class="diff-cell reveal">
         <div class="diff-num">01</div>
         <h4 class="diff-title">Especialização Focada</h4>
-        <p class="diff-body">Atuamos exclusivamente em direito trabalhista e SST. Isso significa profundidade real — não superficialidade generalista.</p>
+        <p class="diff-body">Atuamos exclusivamente em direito trabalhista e SST. Isso significa profundidade real no estudo de cada caso.</p>
       </div>
       <div class="diff-cell reveal reveal-delay-1">
         <div class="diff-num">02</div>
@@ -1117,8 +1374,8 @@ footer{
           <div class="faq-a"><div class="faq-a-inner">Sim. Atendemos presencialmente em Jaraguá do Sul/SC e também de forma remota por videochamada ou WhatsApp. Entre em contato e agendamos da forma mais conveniente para você.</div></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Como funcionam os honorários para empregados?</span><div class="faq-icon">+</div></div>
-          <div class="faq-a"><div class="faq-a-inner">Para reclamações trabalhistas de empregados, trabalhamos com diferentes modelos, incluindo honorários de êxito — ou seja, você só paga se ganhar. Conversamos sobre isso na consulta inicial, com total transparência e sem surpresas.</div></div>
+          <div class="faq-q"><span class="faq-q-text">Como funcionam os honorários?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Os honorários são definidos de forma transparente na consulta inicial, considerando a natureza e a complexidade do caso e os parâmetros do Código de Ética e da Tabela da OAB. Todas as condições são explicadas antes de qualquer contratação, por escrito e sem surpresas.</div></div>
         </div>
       </div>
     </div>
@@ -1163,7 +1420,8 @@ footer{
           <div class="contato-oab">
             Klaus Moroni Alves — OAB/SC 39.706<br>
             Moroni Advocacia — OAB/SC 5.348 · Jaraguá do Sul, SC<br>
-            A advocacia é função essencial à administração da Justiça (CF, art. 133).
+            A advocacia é função essencial à administração da Justiça (CF, art. 133).<br>
+            O conteúdo deste site tem caráter exclusivamente informativo, em conformidade com o Código de Ética e Disciplina e o Provimento nº 205/2021 da OAB. Não constitui oferta, promessa de resultado ou captação de clientela.
           </div>
         </div>
       </div>
@@ -1225,6 +1483,24 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}}); 
 },{threshold:.1,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Contadores animados
+const animateCount=(el)=>{
+  const to=parseFloat(el.dataset.to)||0;
+  const suffix=el.dataset.suffix||'';
+  const dur=1400;const start=performance.now();
+  const tick=(now)=>{
+    const p=Math.min((now-start)/dur,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(to*eased)+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+const countObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);countObs.unobserve(e.target);}});
+},{threshold:.6});
+document.querySelectorAll('.count').forEach(el=>countObs.observe(el));
 
 // ── LGPD Banner ──
 (function(){
